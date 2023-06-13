@@ -42,7 +42,7 @@ print(tuple(my_gen))
 for num in my_gen:
     print(num)
 
-"""
+
 
 # Shallow copy vs deep copy
 or_li=[1,2,3,4,5,[1,2,3]]
@@ -55,10 +55,24 @@ print(or_li)
 print(shal_cop)
 
 
+"""
+import copy
 
 
+or_li=[1,2,[3,4]]
+cop_li=copy.copy(or_li)
+
+cop_li[2][1]=100
 
 
+print(or_li)
+print(cop_li)
+
+
+deep_li=copy.deepcopy(or_li)
+deep_li[2][1]=200
+print(or_li)
+print(deep_li)
 
 
 

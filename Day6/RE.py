@@ -60,8 +60,8 @@ vowels = re.findall(pattern, string, re.IGNORECASE)
 print(f"Vowels found: {vowels}")
 
 # Using quantifiers
-pattern = r"\s{3}-\d{3}-\d{4}"
-strings = ["   -456-7890", "555-5555", "1-800-123-4567"]
+pattern = r"\d{3}-\d{3}-\d{4}"
+strings = ["123-456-7890", "555-5555", "1-800-123-4567"]
 for string in strings:
     if re.match(pattern, string):
         print(f"Valid phone number: {string}")
