@@ -1,24 +1,35 @@
 """
-class MyIterator:
-    def __init__(self,data):
-        self.data=data
-        self.index=0
+
+class Squares:
+    def __init__(self, length):
+        self.length = length
+        self.current = 0
+
     def __iter__(self):
         return self
-    def __next__(self):
-        if self.index >= len(self.data):
-            raise StopIteration
-        value=self.data[self.index]
-        self.index+=1
-        return value
-    
-#use the iterator
-my_l=[1,2,3,4,5]
-my_it=MyIterator(my_l)
-for i in my_it:
-    print(i)
-    
 
+    def __next__(self):
+        if self.current >= self.length:
+            raise StopIteration
+
+        self.current += 1
+        return self.current ** 2
+
+square_num = Squares(5)
+
+for sq in square_num:
+    print(sq)
+
+print(next(square_num))
+
+O/p:
+1
+4
+9
+16
+25
+
+-------------------------------------
 
 my_li=[1,2,3,4,5]
 my_it=iter(my_li)
