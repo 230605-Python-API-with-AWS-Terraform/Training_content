@@ -1,2 +1,2 @@
-def welcome():
-    print("Hello world")
+def welcome(name):
+    print("Hello "+name + " Welcome to session")
