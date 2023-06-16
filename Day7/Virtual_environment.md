@@ -41,9 +41,10 @@ python3 -m venv name-of-the-env
 
 To activate the Virtual Environment on a Windows Machine, you will have to use the following command:-
 ```
-. .\name-of-the-env\Scripts\activate
+. .\name-of-the-env\Scripts\activate.bat
 
 ```
+
 
 **How to deactivate the Virtual Environment in Python?**
 
@@ -65,3 +66,7 @@ On Windows:
 ```
 . .\Scripts\activate
 ```
+
+
+
+
