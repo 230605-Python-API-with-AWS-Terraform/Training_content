@@ -1,0 +1,6 @@
+click>=7.0
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.5
+graphql-core>=2.3,<3.0
+psycopg2-binary==2.9.6
+strawberry-graphql==0.189.1
