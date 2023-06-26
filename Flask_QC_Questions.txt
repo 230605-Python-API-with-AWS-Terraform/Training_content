@@ -1,0 +1,11 @@
+1.  why do we use Flask(_name_) in Flask?
+2. What is routing in Flask?
+3. What is Flask?What are the features of Flask Python?
+4.  What does url_for do in Flask?
+5. What HTTP methods does Python Flask provide?
+6. What is the use of jsonify() in Flask?
+7.  Explain how one can one-request database connections in Flask?
+8. Mention how one can enable debugging in Flask Python?
+9. How to create a RESTful application in Flask?
+10. Which extension is used to connect to a database in Flask?
+11. What is Flask-SQLAlchemy?
