@@ -1,7 +1,12 @@
 from dao import StudentDAO
 
+print("Before enters")
+
 def resolve_students():
-    return StudentDAO.get_all_students()
+    print("Inside the resolve_students() function")
+    students = StudentDAO.get_all_students()
+    print("Retrieved students:", students)
+    return students
 
 def resolve_student(info, id):
     return StudentDAO.get_student_by_id(id)
