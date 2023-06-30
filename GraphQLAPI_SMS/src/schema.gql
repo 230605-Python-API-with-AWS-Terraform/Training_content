@@ -1,0 +1,26 @@
+type Student {
+  id: Int!
+  name: String!
+}
+
+type Course {
+  id: Int!
+  name: String!
+}
+
+type Enrollment {
+  id: Int!
+  studentId: Int!
+  courseId: Int!
+}
+
+type Query {
+  enrollmentsByStudent(studentId: Int!): [Enrollment!]!
+  enrollmentsByCourse(courseId: Int!): [Enrollment!]!
+}
+
+type Mutation {
+  createStudent(name: String!): String!
+  createCourse(name: String!): String!
+  enrollStudent(studentId: Int!, courseId: Int!): String!
+}
