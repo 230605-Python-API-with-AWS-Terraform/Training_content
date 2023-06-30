@@ -2,4 +2,4 @@ Flask
 SQLAlchemy
 Flask-SQLAlchemy
 strawberry-graphql
-Flask-graphql
+
