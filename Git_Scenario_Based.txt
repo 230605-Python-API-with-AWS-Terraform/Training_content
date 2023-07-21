@@ -1,0 +1,95 @@
+
+git scnario based
+
+
+1. You make changes to a local branch, realize you are on the wrong branch, and want to move the changes to a new branch
+
+Checkout and create the new target branch
+Use git stash to temporarily stash your changes
+Checkout back to your original branch
+Use git stash pop on the target branch to apply the stashed changes
+
+2. You commit changes to a branch and realize you need to make more changes before committing
+
+Use git commit --amend to update the previous commit
+Make additional changes and stage them
+Commit again with --amend and --no-edit to add to previous commit
+
+3. You have multiple commits on a branch and want to combine them into a single commit
+
+Use git rebase -i HEAD~N to squash commits, N is number of commits back
+Specify which commits to squash in interactive rebase editor
+Rebase will replay commits into a single commit
+
+4. You committed changes to the wrong branch and want to move the commit to a different branch
+
+Use git cherry-pick <commit-hash> to pickup commit
+Checkout target branch and cherry-pick commit to apply it
+
+5. You accidentally committed sensitive data and want to remove it from history
+
+Use git rebase -i and delete or squash the bad commit
+Force push updated branch history overwriting previous commits
+The key is knowing Git commands like stash, amend, rebase, cherry-pick to fix issues and craft history as needed.
+
+6. You make changes to a file but want to undo them before committing
+
+Use git restore <file> to discard changes in the working directory
+Or use git checkout -- <file> to overwrite file with HEAD commit
+
+7. You stage files for commit but want to unstage them
+
+Use git reset to unstage files
+Or use git restore --staged <file> to unstage specific files
+
+8. You want to save your current work to switch contexts but don't want to commit yet
+
+Use git stash to save current changes and revert working directory
+Use git stash pop later to re-apply the stashed changes
+
+9. You want to see which files changed in recent commits
+
+Use git log --name-only to see files changed per commit
+Or use git diff-tree --no-commit-id --name-only -r <commit> to see files changed in specific commit
+
+10. You want to inspect the contents of an old commit
+
+Use git show <commit> to view files changed in commit
+Or checkout the commit itself to explore repo at that point using git checkout <commit>
+
+11. You want to compare changes across branches
+
+Use git diff <branch1> <branch2> to diff branches
+Or git log <branch1>..<branch2> to see commits in one branch not in other
+
+
+12. You made changes in a branch and want to share them without merging into main yet
+
+Push branch to remote using git push origin <branch>
+Open pull request so others can review before merging
+
+13. You want to save your work without committing so you can pull latest upstream changes
+
+Stash changes with git stash
+Pull latest commits with git pull
+Re-apply stash with git stash pop
+
+14. You want to delete local branches that were deleted upstream
+
+Fetch latest branch state with git fetch --prune
+Deletes local refs to branches deleted upstream
+
+15. You want to revert a commit that was pushed to a public branch
+
+Create a new commit that reverts changes using git revert <commit>
+Push reverted commit to overwrite previous commit history
+
+16. You need to rewrite public commit history on a shared branch
+
+Avoid rewriting public history that others depend on
+Discuss with team first before rewriting shared commits
+
+17. You accidentally leaked API keys/passwords in a commit
+
+Remove sensitive data from history with git filter-branch
+Force push branch to overwrite sensitive commits
