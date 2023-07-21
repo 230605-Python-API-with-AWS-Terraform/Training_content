@@ -4,7 +4,7 @@ from database import db
 from strawberry.flask.views import GraphQLView
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Sreealee%402609@localhost/day1_demo?port=5432'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Password0#@database1.cuetvdodk2bh.us-east-1.rds.amazonaws.com:5432/aws'
 
 # Initialize the database
 db.init_app(app)
@@ -17,7 +17,7 @@ def index():
 def shutdown_session(exception=None):
     db.session.remove()
 
-app.add_url_rule('/graphql', view_func=GraphQLView.as_view('graphql', schema=schema))
+app.add_url_rule('/sms', view_func=GraphQLView.as_view('graphql', schema=schema, graphiql=True))
 
 if __name__ == '__main__':
     app.run()

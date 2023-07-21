@@ -6,6 +6,7 @@ Base = declarative_base()
 # Rest of the code...
 
 db = SQLAlchemy()
+db_session=db.session
 
 def init_db(app):
     db.init_app(app)

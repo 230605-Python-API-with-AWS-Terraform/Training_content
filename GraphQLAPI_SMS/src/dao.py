@@ -1,4 +1,5 @@
 from models import Student, Course, Enrollment
+
 from database import db_session
 
 def create_student(name):

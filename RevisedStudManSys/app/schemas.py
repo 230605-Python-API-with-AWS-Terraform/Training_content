@@ -55,3 +55,4 @@ class Query:
 
 
 schema = strawberry.Schema(query=Query, mutation=Mutation)
+

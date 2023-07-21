@@ -1,0 +1,60 @@
+Configure Tooling
+
+git config - Get and set repository or global options
+git help - View help for git commands
+Initialize Repositories
+
+git init - Initialize an existing directory as a Git repository
+git clone - Clone/copy a remote repository to a local directory
+Snapshotting
+
+git add - Stage file changes for commit
+git commit - Commit staged snapshot to local repository
+git diff - View changes between commits, commit and working tree
+git stash - Stash/shelve changes for later rebasing
+git log - Show commit history log
+Branching & Merging
+
+git branch - List, create, or delete branches
+git checkout - Switch between branches or restore working tree
+git merge - Join two or more development histories (branches)
+git rebase - Reapply commits on top of another branch
+Collaborate
+
+git fetch - Download objects and refs from remote repository
+git pull - Fetch from and integrate with remote repository
+git push - Upload objects and refs to remote repository
+Inspect & Compare
+
+git show - Show various types of objects
+git shortlog - Summarize git log output
+git describe - Give an object a human-readable name
+
+Undo Changes
+
+git revert - Revert some existing commits
+git reset - Reset current HEAD to specified state
+git rm - Remove files from the working tree and index
+Repository Administration
+
+git gc - Cleanup unnecessary files and optimize local repo
+git prune - Prune all unreachable objects from git object database
+git fsck - Verify the connectivity and validity of objects in database
+Tracking Paths
+
+git ls-files - Show information about files in the index and working tree
+git blame - Show what revision and author changed each line of file
+Patching
+
+git apply - Apply a patch to files and/or to the index
+git cherry-pick - Apply changes introduced by some existing commits
+git format-patch - Prepare patches for e-mail submission
+Collaborate - Remote
+
+git remote - Manage set of tracked repositories
+git archive - Create archive of files from named tree
+git submodule - Initialize, update, orgit inspect submodules
+Grep & Search History
+
+git grep - Print lines matching pattern in tracked files
+git bisect - Use binary search to find faulty commit
