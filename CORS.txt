@@ -1,0 +1,78 @@
+What is CORS? How did you manage cross-origin requests (CORS) in the API?
+
+
+CORS stands for Cross-Origin Resource Sharing. It allows restricting API access to certain trusted domains to prevent malicious requests.
+
+We have enabled CORS in my API:
+
+- Used the Flask-CORS extension to add CORS headers to API responses.
+- Configured Flask-CORS to allow requests from specific whitelisted origins like my frontend domain.
+- Set Access-Control-Allow-Origin to the frontend domain instead of just '*' to restrict access.
+- Allowed necessary CORS request headers like Authorization, Content-Type etc.
+- Enabled CORS for all routes using a CORS blueprint for convenience.
+- For preflight OPTIONS requests, returned 200 OK with CORS headers.
+
+*Code*
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+
+# Enable CORS on all routes
+CORS(app) 
+
+# Or enable on specific routes
+@app.route("/api")
+@cross_origin() 
+
+# Allow CORS on all domains (unsafe)
+CORS(app, resources={r"/*": {"origins": "*"}})
+
+# Allow CORS for specific frontend domain
+CORS(app, resources={r"/*": {"origins": "http://example.com"}}) 
+
+# Allow CORS headers
+CORS(app, headers=['Content-Type', 'Authorization']) 
+
+# Handle CORS preflight request
+@app.route("/api", methods=["OPTIONS"])
+@cross_origin()
+def preflight():
+    return 200
+
+# Handle CORS errors
+@app.errorhandler(CORSException) 
+def handle_error(e):
+    return "Origin not allowed", 400
+
+
+What is Preflight?
+
+A preflight request is an OPTIONS HTTP request sent by the browser before making an actual CORS request. It is used to check if the CORS request is safe to send by validating things like:
+
+- Origin - To check if the API allows requests from the frontend's origin/domain.
+
+- HTTP Method - To validate if methods like PUT, DELETE etc are allowed CORS.
+
+- Headers - To check if custom headers like Authorization can be sent.
+
+- Credentials - To check if cookies/credentials can be sent for this CORS request. 
+
+Based on the preflight response, the browser will allow or block the actual CORS request.
+
+Key things about preflight requests:
+
+- Automatically generated and sent by browsers for "non-simple" CORS requests.
+
+- Use the OPTIONS HTTP method and include Origin, Access-Control headers.
+
+- The server should return 200 OK with CORS headers allowing the origin, methods, headers etc.
+
+- This allows the browser to cache the allowed CORS policy for subsequent requests.
+
+- If preflight fails, the browser will block the CORS request and throw an error.
+
+- Custom headers like Authorization trigger a preflight.
+
+*Note*:
+properly handling preflight OPTIONS requests is crucial for enabling CORS access to APIs requiring authentication or custom headers.
