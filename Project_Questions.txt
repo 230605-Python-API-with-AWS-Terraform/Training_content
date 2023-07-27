@@ -1,0 +1,105 @@
+Explain the high-level architecture and different components of your project.
+What were the main technical challenges in building this project?
+Why did you choose Postgres database over other options?
+Walkthrough the database schema design and key tables.
+What are the advantages of GraphQL over REST for building APIs?
+Explain how you implemented key GraphQL queries and mutations.
+How did you configure Flask to work with GraphQL?
+What are some key Flask plugins/extensions used and their purpose?
+How did you containerize the application using Docker?
+Explain the continuous integration and deployment workflow.
+What AWS services are used and what purpose do they serve?
+How did you optimize the database for performance and scalability?
+What indexing techniques did you implement on database tables?
+Explain your approach for caching to improve API performance.
+How did you implement authentication and authorization for the API?
+How did you validate data in mutations before storing to database?
+Explain with examples your exception handling mechanisms in the API.
+What HTTP status codes did you return for different error scenarios?
+How did you implement logging and monitoring for the API?
+What tools did you use for testing the application?
+What test cases did you automate and what is the code coverage?
+How did you optimize Docker image size and performance?
+Explain how you designed the VPCs, subnets, routing tables etc on AWS.
+How are security groups and NACLs used to filter AWS traffic?
+Explain the auto scaling configuration for EC2 instances.
+How did you implement high availability for the API?
+What are some ways you reduced costs in the AWS deployment?
+How can the API be consumed from client apps - any SDKs provided?
+What mechanisms handled rate limiting and throttling for the API?
+How did you implement versioning of the API?
+What are some future enhancements you would like to work on?
+How did you ensure consistency of data during updates and deletes?
+What strategies were used for optimizing database queries?
+How are database connections pooled and reused?
+What challenges did you face in deployment and how did you troubleshoot?
+How can the application be monitored and debugged on AWS?
+Explain how you designed the CI/CD pipeline.
+What best practices did you follow when writing the code?
+Did you use any API design principles or standards?
+What mechanisms are implemented for retries and exponential backoff?
+How did you enforce security for the API? Any encryption?
+What are some other ways to expose APIs besides GraphQL?
+How did you handle pagination for query results?
+What load testing was done on the API? How did you analyze performance?
+What are some future enhancements you would like to build on top of this?
+How can this API be monetized?
+What were learnings from this project that you can apply to future work?
+How does your database schema handle evolution over time?
+What challenges did you face with dependencies and how did you manage them?
+What are some alternative approaches you considered but ruled out? Why?
+
+
+
+-------------------------------------------------------------------------------------
+
+1. What was the main objective of building the Stock Management API?
+2. What are the advantages of using GraphQL over traditional RESTful APIs in this project?
+3. Explain the concept of resolvers in GraphQL and how they are used in Strawberry.
+4. How did you handle pagination of stock items in the GraphQL API?
+5. Describe the process of adding a new stock item to the database through the API.
+6. How did you implement search functionality for stock items in the API?
+7. What strategies did you use to optimize database queries for better performance?
+8. How did you manage the different environments (development, production) for your API?
+9. Explain the process of updating the quantity of a specific stock item using GraphQL mutations.
+10. How did you handle potential race conditions while updating stock quantities?
+11. What steps did you take to secure the API against common vulnerabilities like SQL injection?
+12. Describe the role of middleware in your Python Flask application and how it was used.
+13. What are the benefits of using a schema-first approach in GraphQL development with Strawberry?
+14. How did you ensure the API adheres to the principles of a RESTful architecture, even with GraphQL?
+15. Explain the concept of interfaces in GraphQL and how they were utilized in the API.
+16. What were the different types of errors and status codes returned by the API during various scenarios?
+17. How did you manage API versioning and backward compatibility?
+18. Describe the process of deploying the application on AWS, step-by-step.
+19. What AWS services did you use to support the deployed application, and why?
+20. How did you handle logs and monitoring for your API in the AWS environment?
+21. Describe the process of scaling the application on AWS to handle increased traffic.
+22. What strategies did you employ to optimize the API's performance and reduce response times?
+23. Explain the concept of GraphQL subscriptions and whether you used them in the API.
+24. How did you manage user authentication and authorization in the API?
+25. Describe the process of integrating a CI/CD pipeline for the project.
+26. How did you handle concurrent requests and ensure data integrity in the database?
+27. Explain the benefits of using a relational database (PostgreSQL) for this project over other types.
+28. How did you ensure the API could handle large amounts of data and users?
+29. Describe the process of backing up and restoring the database in the AWS environment.
+30. How did you implement caching in the API, if at all?
+31. Explain the concept of optimistic concurrency control and its relevance to the project.
+32. How did you handle errors and exceptions within the API?
+33. Describe any custom data validation implemented for incoming API requests.
+34. How did you ensure the API's compatibility with various client applications (web, mobile, etc.)?
+35. Explain the process of handling file uploads, if applicable to your project.
+36. What logging mechanisms did you implement to track API usage and errors?
+37. How did you handle rate limiting to prevent abuse of the API?
+38. Describe any security mechanisms implemented to protect sensitive data in the API.
+39. How did you approach internationalization and localization in the API, if applicable?
+40. Explain the role of SQLAlchemy in your Python Flask application and its integration with PostgreSQL.
+41. How did you handle database migrations when updating the application?
+42. Describe the process of rolling back a deployment in case of issues.
+43. What are the potential bottlenecks in your API's architecture, and how did you address them?
+44. Explain the process of logging and tracing API requests in the AWS environment.
+45. How did you manage cross-origin requests (CORS) in the API?
+46. Describe the process of load testing the API and analyzing its performance.
+47. How did you handle asynchronous tasks or background processing, if any?
+48. Explain how you dealt with data consistency and integrity in the database.
+49. Describe any strategies for handling API versioning and deprecation gracefully.
+50. How did you implement error handling and feedback for GraphQL queries and mutations?

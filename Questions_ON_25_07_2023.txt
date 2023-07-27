@@ -1,0 +1,269 @@
+1. What is the difference between append and extend?
+
+Use append() when you want to add a single element to the end of a list.
+Use extend() when you want to add multiple elements to the end of a list by concatenating another iterable onto it.
+append() modifies the original list in-place, extend() also modifies the original.
+append() is faster than extend() for adding a single element.
+extend() only works for concatenating iterables while append() can add any object.
+
+# Append
+my_list = [1, 2, 3]
+my_list.append(4)
+print(my_list) # [1, 2, 3, 4]
+
+# Extend 
+my_list = [1, 2, 3] 
+my_list.extend([4, 5, 6])
+print(my_list) # [1, 2, 3, 4, 5, 6]
+
+2. Do we have comprehension in tuple?
+
+ we don’t have tuple comprehension in Python as the parentheses are used for generator comprehension. Another reason for the absence of tuple comprehension might be that tuples are immutable. 
+
+newTuple= (element for element in iterable if condition)
+Let’s try and create a tuple using the above syntax.
+
+oldTuple=(1,2,3,4,5,6)
+print("The old tuple is:")
+print(oldTuple)
+newTuple=(element**2 for element in oldTuple)
+print("The new tuple is:")
+print(newTuple)
+Output:
+
+The old tuple is:
+(1, 2, 3, 4, 5, 6)
+The new tuple is:
+<generator object <genexpr> at 0x7fa988686f10>
+
+In the output, you can observe that we get a generator object instead of a tuple. Thus, the syntax (element for element in iterable if condition) is used for generator comprehension and not tuple comprehension. 
+
+
+3. What is workspace and interpolation in Terraforms?
+
+In Terraform, a workspace allows you to have multiple states for the same configuration and infrastructure. Workspaces are useful for having different environments like dev, test, prod etc. Some key points on Terraform workspaces:
+
+A workspace isolates the Terraform state for an environment. Each workspace has its own state file.
+The default workspace is called "default". You can create new workspaces with the terraform workspace new command.
+You can switch workspaces using terraform workspace select. This switches the context for all subsequent commands.
+Workspace names can include alphanumeric characters and - or _ .
+The terraform.tfstate file will be stored in a directory named for the workspace.
+Terraform interpolation allows you to reference values from other parts of the configuration. For example:
+
+
+
+resource "aws_instance" "example" {
+  ami = "${var.ami_id}" 
+}
+
+variable "ami_id" {
+  default = "ami-0abcdef12345"
+}
+Here ami_id is interpolated from the variable section. Other uses:
+
+Reference resource attributes: ${aws_instance.example.id}
+Use outputs from modules: ${module.foo.bar}
+Call functions: ${upper(var.name)}
+
+*Note*:
+workspace isolates state for an environment, interpolation injects values into the configuration. Both are useful Terraform features.
+
+4. What are the benefits of API Gateway?
+
+API Gateway is a fully managed service that makes it easy to publish, maintain, monitor, and secure APIs at any scale.
+It handles all the tasks involved in accepting and processing up to hundreds of thousands of concurrent API calls, including traffic management, CORS support, authorization and access control, throttling, monitoring, and API version management.
+API Gateway supports deploying APIs to multiple stages (like dev, test, prod). You can have different limits, authorizers, etc per stage.
+It integrates with multiple AWS services so you can build flexible architectures. For example, writing Lambda functions for business logic and having API Gateway invoke the functions.
+API Gateway supports multiple endpoint types including REST, WebSocket and HTTP APIs. This provides flexibility based on the use case.
+It provides SDK generation capabilities and API management tools like API keys, usage plans, and documentation.
+Granular access control mechanisms are supported, including IAM permissions, Lambda authorizers, Amazon Cognito user pools etc.
+API Gateway logs help debug issues and monitor usage. The metrics give visibility into API performance.
+It provides caching capabilities to improve performance. API responses can be cached for low latency and reduced calls to backend.
+
+
+*Note*:
+API Gateway simplifies API management, improves performance and security, and integrates seamlessly with many AWS services like Lambda and DynamoDB.
+
+5. deep copy vs shallow copy in Python?
+
+
+What is Shallow copy?
+A bitwise copy of an object, where a new object is created and it has the same copy of the values in the original object, is called a Shallow copy. If any of the object fields refer to the other object then in such cases only the reference address is copied.
+
+What is Deep copy?
+When the process of copying occurs repetitively and a copy of the object is always copied in another object, then it is called deep copy. In this process, initially, a new collection of the object is constructed, and then the copies of the child object frequently populate those found in the original.
+
+Difference between Shallow copy and Deep copy
+
+1.	In Shallow copy, a copy of the original object is stored and only the reference address is finally copied.	In Deep copy, the copy of the original object and the repetitive copies both are stored.
+2.	Shallow copy is faster than Deep copy.	Deep copy is slower than Shallow copy.
+3.	The changes made in the copied object also reflect the original object.	There is no reflection on the original object when the changes are made in the copied object.
+4.	It stores references of the object in the main memory.	It stores copies of the object values.
+
+
+6. What is lambda in AWS?
+
+AWS Lambda is an event-driven, serverless computing platform provided by Amazon as part of Amazon Web Services. Here are some key points about AWS Lambda:
+
+- Lambda lets you run code without provisioning or managing servers. 
+
+- You pay only for the compute time consumed - there is no charge when your code is not running.
+
+- It runs your code only when needed and scales automatically, from a few requests per day to thousands per second.
+
+- Lambda runs your code on a high-availability compute infrastructure. 
+
+- You can run code for virtually any type of application or backend service.
+
+- It supports multiple languages including Node.js, Python, Java, C# etc.
+
+- Lambda integrates with many AWS services and can be triggered by events like HTTP requests, S3 uploads, DynamoDB changes etc.
+
+- The code executes in a secure environment and can access resources like databases, S3 etc within the same AWS account.
+
+- Lambda functions can be versioned for easy rollback and updates.
+
+- AWS X-Ray provides tracing capabilities to debug and analyze Lambda applications.
+
+- Lambda functions can be orchestrated and integrated using AWS Step Functions.
+
+*Note*
+AWS Lambda provides a serverless, event-driven platform to run your code without managing servers, with high scalability and availability, fine-grained pricing and integration with many AWS services.
+
+7. What is CI/CD and devops?
+
+CI/CD stands for Continuous Integration and Continuous Delivery/Deployment. It is a development practice for automating builds, tests and releases of applications.
+
+Key principles of CI/CD:
+
+Developers integrate code into a shared repository frequently, at least daily.
+Each integration is verified by an automated build and test process.
+Fast feedback on build or test failures.
+Automated deployment to testing/production environments.
+Frequent releases to customers in weeks or days, instead of months or years.
+DevOps is a culture and set of processes emphasizing communication and collaboration between software developers and IT operations professionals. It aims to enable fast, frequent and more reliable software releases.
+
+Key principles of DevOps:
+
+Focus on customer requirements and rapid delivery.
+Automate and continuously test everything - builds, deployments, infrastructure.
+Work in small, cross-functional teams with shared responsibilities.
+Continuous monitoring and feedback loops to improve quality.
+Emphasize learning, evolving and improving over time.
+
+8. How to remove vowels without using any inbuilt functions?
+
+def remove_vowels(text):
+  vowels = "aeiouAEIOU"
+  text_without_vowels = "".join([char for char in text if char not in vowels])
+  return text_without_vowels
+
+string = "India is my country" 
+print(remove_vowels(string))
+
+9. What is directives in GraphQL?
+
+Directives in GraphQL allow you to modify the behavior of queries and mutations. They are used to add additional information to queries and schema fields to alter their behavior. 
+
+Directives start with @ symbol followed by the directive name. For example: @include, @skip etc.
+They can be attached to a field or fragment inclusion to conditionally include fields in query result.
+The @include directive includes a field only if the given argument is true.
+The @skip directive skips a field if the argument is true.
+This allows dynamically controlling the query result shape based on variable input.
+Directives can access variables from the request context.
+Apart from @include and @skip, GraphQL also provides @deprecated to deprecate a field.
+Custom directives can also be defined to implement custom functionality.
+Directives are defined in the schema using the directive keyword.
+Directives can be used by the client and the server to modify queries and results.
+
+
+*Note*:
+
+GraphQL directives are a way to dynamically alter the shape and behavior of queries using variables and custom logic. They enable adding metadata and conditions to vary query execution.
+
+10. India is My country . Reverse the first and last word in the given string
+
+def reverse_first_last(text):
+  words = text.split()
+  words[0] = words[0][::-1]
+  words[-1] = words[-1][::-1] 
+  return " ".join(words)
+
+text = "India is My country"
+print(reverse_first_last(text))
+
+11. What do you know about generators in python?
+
+What are Python Generators?
+Python's generator functions are used to create iterators(which can be traversed like list, tuple) and return a traversal object. It helps to transverse all the items one at a time present in the iterator.
+
+Generator functions are defined as the normal function, but to identify the difference between the normal function and generator function is that in the normal function, we use the return keyword to return the values, and in the generator function, instead of using the return, we use yield to execute our iterator.
+
+Example:
+
+def gen_fun():
+    yield 10
+    yield 20
+    yield 30
+    
+for i in gen_fun():
+    print(i)
+
+10
+20
+30
+
+In the above example, gen_fun() is a generator function. This function uses the yield keyword instead of return, and it will return a value whenever it is called.
+
+12. What is payload in Rest API?
+
+The payload refers to the data sent in the body of HTTP requests and responses. Here are some key points about payload:
+
+The payload contains the actual data being transferred in an API call.
+For POST/PUT requests, the payload contains the data being sent from the client to the API. This is used to create/update resources.
+For GET responses, the payload contains the data being returned from the API to the client.
+The payload is structured using a format like JSON, XML, YAML etc. JSON is the most commonly used format.
+The structure of the payload data is defined in the API documentation. The client and server agree on the payload structure.
+The client sets the Content-Type request header to indicate the format of the request payload, like application/json.
+The server sets the Content-Type response header to indicate the format of the response payload.
+Payloads can contain simple primitive fields, or complex hierarchical data structures as required.
+Payload size may be restricted by servers, so requests should not send overly large payloads.
+
+13. What is normalization? What are the different types of anamolies?
+
+Normalization is the process of organizing structured data in a database to minimize redundancy and dependency. It involves dividing larger tables into smaller tables and defining relationships between them. The main goals of normalization are to:
+
+Eliminate redundant data
+Minimize data modification issues
+Simplify queries
+
+
+There are three main types of anomalies that can occur when database tables are not normalized:
+
+Insertion anomaly: Cannot insert data into a table without having values for a different table.
+Update anomaly: Modifying data in one table causes issues in another table.
+Deletion anomaly: Deleting rows from one table causes unintended deletion or orphaning of data in related tables.
+There are different levels or normal forms that measure how normalized a database is:
+
+1NF: Eliminate repeating groups, create separate tables for each set of related data.
+
+2NF: Eliminate redundant data, no non-key columns dependent on just part of a composite key.
+
+3NF: Eliminate columns that are not dependent on the primary key.
+
+Higher normal forms like BCNF and 4NF also exist for more normalized structure.
+
+14. Explain about KMS?
+
+AWS Key Management Service (KMS) is a managed service that makes it easy to create and control encryption keys used to encrypt your data. Here are some key points about KMS:
+
+It provides a highly available key storage, management, and auditing solution.
+KMS keys are protected by FIPS 140-2 validated hardware security modules.
+It integrates with other AWS services like S3, EBS, and RDS to encrypt data transparently using KMS keys.
+You can define access controls and IAM policies to manage KMS keys and encryption/decryption permissions.
+Audit trail of key usage is provided through CloudTrail integration.
+Keys can be created, rotated, disabled and deleted through the KMS API.
+Regional keys protect data within a single region while multi-region keys protect data across regions.
+You can choose between AWS managed keys or create your own custom keys.
+Cryptographic operations are performed within the FIPS boundary. Your keys are never exposed in plaintext outside the FIPS endpoint.
+Supports both symmetric (AES and SHA) and asymmetric (RSA and ECC) encryption algorithms.

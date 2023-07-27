@@ -1,0 +1,30 @@
+Product:
+
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| ProductId     | int         | NO   | PRI | NULL    |       |
+| ProductName   | varchar(20) | YES  |     | NULL    |       |
+| ProductColor  | varchar(10) | YES  |     | NULL    |       |
+| CategoryId    | int         | YES  | MUL | NULL    |       |
+| RetailerId    | int         | YES  | MUL | NULL    |       |
+| ProductRating | int         | YES  |     | NULL    |       |
+| ProductPrice  | double      | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+Category:
+
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| CategoryId   | int         | NO   | PRI | NULL    |       |
+| CategoryName | varchar(20) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+Retailer:
+
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| RetailerId     | int         | NO   | PRI | NULL    |       |
+| RetailerName   | varchar(20) | YES  |     | NULL    |       |
+| RetailerRating | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
